@@ -8,7 +8,7 @@ type Param = {
 const BlogPage = async ({params} : Param) => {
     console.log('params is ', await params)
     const {id} = await params
-    const blog = getBlogById(Number(id))
+    const blog = await getBlogById(Number(id))
 
     if(!blog) {
         notFound()

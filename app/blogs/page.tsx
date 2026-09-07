@@ -7,7 +7,7 @@ const Page = async ({searchParams} : {searchParams : Promise<{filter : string}>}
     const {filter} = await searchParams
     console.log('search value is ',filter)
 
-    const allBlogs = getBlogs().sort((a,b) => b.likes - a.likes)
+    const allBlogs = await getBlogs()
     const blogs = filter
         ? allBlogs.filter(blog => blog.title.toLowerCase().includes(filter.toLowerCase()))
         : allBlogs
